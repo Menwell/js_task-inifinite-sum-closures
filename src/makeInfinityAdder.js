@@ -3,7 +3,7 @@
 /***
  * @return {function}
  */
-function makeInfinityAdder() {
+function makeAdder() {
   return function adder(a) {
     if (a === undefined) {
       return 0;
@@ -13,11 +13,11 @@ function makeInfinityAdder() {
 
     return function inner(b) {
       if (b === undefined) {
-        const currantSum = sum;
+        const currentSum = sum;
 
         sum = 0;
 
-        return currantSum;
+        return currentSum;
       }
 
       sum += b;
@@ -26,4 +26,4 @@ function makeInfinityAdder() {
     };
   };
 }
-module.exports = makeInfinityAdder;
+module.exports = makeAdder;
